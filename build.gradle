@@ -1,0 +1,45 @@
+apply plugin: 'groovy'
+apply plugin: 'eclipse'
+apply plugin: 'application'
+
+group = 'bimderboo'
+
+jar {
+    baseName = 'jme3-jar-example'
+    version =  ''
+}
+
+repositories {
+    mavenCentral()
+    jcenter()
+}
+
+sourceCompatibility = 1.8
+targetCompatibility = 1.8
+
+ext.jmeVersion = "[3.1,)"
+
+mainClassName = "bimderboo.jmejarexample.Library"
+
+dependencies {
+    compile(
+        'org.codehaus.groovy:groovy-all:2.4.6'
+        ,'org.apache.commons:commons-lang3:3.4'
+        ,'ch.qos.logback:logback-parent:1.1.7'
+    		,"org.jmonkeyengine:jme3-core:$jmeVersion"
+    		,"org.jmonkeyengine:jme3-effects:$jmeVersion"
+    		,"org.jmonkeyengine:jme3-networking:$jmeVersion"
+    		,"org.jmonkeyengine:jme3-plugins:$jmeVersion"
+    		,"org.jmonkeyengine:jme3-jogg:$jmeVersion"
+    		,"org.jmonkeyengine:jme3-terrain:$jmeVersion"
+    		,"org.jmonkeyengine:jme3-blender:$jmeVersion"
+    		,"org.jmonkeyengine:jme3-bullet:$jmeVersion"
+			,"org.jmonkeyengine:jme3-niftygui:$jmeVersion"
+    		,"org.jmonkeyengine:jme3-desktop:$jmeVersion"
+    		,"org.jmonkeyengine:jme3-lwjgl:$jmeVersion"
+    )
+}
+
+task wrapper(type: Wrapper) {
+    gradleVersion = '2.13'
+}
